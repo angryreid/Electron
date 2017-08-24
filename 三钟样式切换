@@ -1,0 +1,20 @@
+<ul class="nav-a">
+      <li class="nav-center nav-state-now" id="step-one" data-state="on">1.基本信息</li>
+      <li class="nav-center" id="step-two" data-state="off">2.主要污染物</li>
+      <li class="nav-center" id="step-three" data-state="off">3.附件下载</li>
+      @*<li id="step-four">4.注册成功</li>*@
+  </ul>
+  <script>
+      $(".nav-center").click(function () {
+          $(this).removeClass("nav-state-finished").addClass("nav-state-now");
+          $(this).siblings().removeClass("nav-state-now");
+          if ($(this).attr("data-state") == "off") {
+              $(this).attr("data-state", "on");
+          }
+          $(this).siblings().each(function() {
+              if ($(this).attr("data-state") == "on") {
+                  $(this).addClass("nav-state-finished");
+              }
+          }); 
+      });
+  </script>
